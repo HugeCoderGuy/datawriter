@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1' 
+VERSION = '0.0.4' 
 DESCRIPTION = 'For logging collected data in a filetype of choice'
-LONG_DESCRIPTION = "README.md"
+LONG_DESCRIPTION = "https://github.com/HugeCoderGuy/datawriter README.md"
 long_description_content_type = "text/markdown"
 url = "https://github.com/HugeCoderGuy/datawriter"
 
@@ -29,3 +29,6 @@ setup(
             "Operating System :: Microsoft :: Windows",
         ]
 )
+
+# create new dist:  python setup.py sdist bdist_wheel
+# upload to pypi:   twine upload --skip-existing dist/*

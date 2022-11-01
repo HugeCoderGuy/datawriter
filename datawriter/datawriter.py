@@ -7,7 +7,7 @@ import os
 # from aiocsv import AsyncWriter
 
 
-class DataWriter:
+class datawriter:
     """Create a csv to log data with a list after defining a header
     
     First create logger object and defining its modes.
@@ -191,7 +191,7 @@ class DataWriter:
         return list_      
             
 def test():
-    datalogger = DataWriter("test1", timestamp=True, silent=False, output_direct="deleteMe")
+    datalogger = datawriter("test1", timestamp=True, silent=False, output_direct="deleteMe")
     data = ["55", "yes", None]
     # map(lambda x: [x], data)
     datalogger.write_header(["header1", True, 10], ignore_old_header=True)
@@ -199,7 +199,7 @@ def test():
     datalogger.write_row(["poop", 666, "yup"])
     datalogger.write_row([33, 25, 12, None])
     datalogger.write_row(["I am here!"])
-    datalog2 = DataWriter("test2", timestamp=False, silent = True, output_direct="deleteMe", replace_file=True)
+    datalog2 = datawriter("test2", timestamp=False, silent = True, output_direct="deleteMe", replace_file=True)
     datalog2.write_header(["header1", 2, [33, 44], (15,1)])
     datalog2.write_row([])
     datalog2.silent = False
@@ -211,7 +211,7 @@ def test():
     datalog2.write_row(3, 4, 'bleh', True, (1, 2), [5, '6'])
     datalog2.write_row([12345.6789123456789, "1.23456789E8"])
     
-    log3 = DataWriter("test3", timestamp=True, silent=True, txtmode=True, output_direct="deleteMe", replace_file=True)
+    log3 = datawriter("test3", timestamp=True, silent=True, txtmode=True, output_direct="deleteMe", replace_file=True)
     log3.write_header(["col1", "col2", 3, 4.0])
     log3.write_row(["1", "2", 3, 4])
     log3.write_row([True, False, None, 1])
@@ -222,7 +222,7 @@ def test():
     setpoint = 45
     avg_freq = "3.777777E8"
     std_freq = "1.23456789E7"
-    log4 = DataWriter("SN0{}".format(serial), timestamp=True, silent=True, txtmode=True, output_direct="deleteMe")
+    log4 = datawriter("SN0{}".format(serial), timestamp=True, silent=True, txtmode=True, output_direct="deleteMe")
     log4.write_header(["Serial Number", 'Set Point [C]', 'Frequency [Hz]', 'STDEV'])
     log4.write_row([serial, setpoint, repr(float(avg_freq)), repr(float(std_freq))])
     
@@ -238,7 +238,7 @@ def test():
     # print(f"async executed in {elapsed:0.4f} seconds.")
     
     s =  time.perf_counter()
-    log6 = DataWriter("test6", timestamp=True, silent=True, txtmode=False, output_direct="deleteMe", replace_file=True)
+    log6 = datawriter("test6", timestamp=True, silent=True, txtmode=False, output_direct="deleteMe", replace_file=True)
     log6.write_header(["Clo 1", 'Col2', 'Col3', 'Col4', 'Col5'])
     s = time.perf_counter()
     for i in range(10000):
