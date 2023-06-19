@@ -1,6 +1,10 @@
 # DataWriter 
 This python package allows for added ease when saving data to a .csv for post processing later.  
 
+## Install:
+'python pip install datawriter'
+
+## Example:
 Refer to example.py for a more thorough walkthrough
 ```python
 from datawriter.datawriter import datawriter
